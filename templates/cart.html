@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+{% autoescape false %}
+<br><br><br><br><br><br>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<
+<div class="container" style ='margin-right:55px;'>
+	<div class="row">
+		<div class="col-xs-8">
+			<div class="panel panel-info" style="width:100%">
+				<div class="panel-heading">
+					<div class="panel-title">
+						<div class="row">
+							<div class="col-xs-6">
+								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart</h5>
+							</div>
+							<div class="col-xs-6">
+								<button type="button" class="btn btn-primary btn-sm btn-block">
+									<span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+                    {% for product in product %}
+					<div class="row">
+						<div class="col-xs-2"><img class="img-responsive" src="../static/upload/{{ product[3] }}">
+						</div>
+						<div class="col-xs-4">
+							<h4 class="product-name"><strong>{{ product[0] }}</strong></h4><h4><small>{{ product[1] }}</small></h4>
+						</div>
+						<div class="col-xs-6">
+							<div class="col-xs-6 text-right">
+								<h6><strong>{{ product[2] }} <span class="text-muted">x</span></strong></h6>
+							</div>
+							<div class="col-xs-4">
+                                <form action="/updateCart/{{ product[5] }}" method="post">
+                                    <input type="text" class="form-control input-sm" value="{{ product[4] }}" name ='quantity'>
+                                    <br>
+                                    <input type="submit" class="btn btn-default btn-sm btn-block" value ='Update'>
+                                </form>
+							</div>
+							<div class="col-xs-2">
+                                <form action="/deleteCart/{{ product[5] }}" method="post">
+                                    <input type="submit" class="btn btn-default btn-sm btn-block glyphicon glyphicon-trash" value ='-' >
+                                </form>
+<!--								<button type="button" class="btn btn-link btn-xs">-->
+<!--									<span class="glyphicon glyphicon-trash"> </span>-->
+<!--								</button>-->
+							</div>
+						</div>
+					</div>
+                    <hr>
+                    {% endfor %}
+					<hr>
+					<div class="row">
+						<div class="text-center">
+							<div class="col-xs-9">
+								<h6 class="text-right">Added items?</h6>
+							</div>
+							<div class="col-xs-3">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="row text-center">
+						<div class="col-xs-9">
+							<h4 class="text-right">Total <strong>{{ totalPrice[0] }}</strong></h4>
+						</div>
+						<div class="col-xs-3">
+							<button type="button" class="btn btn-success btn-block">
+								Checkout
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endautoescape %}
+{% endblock %}
+

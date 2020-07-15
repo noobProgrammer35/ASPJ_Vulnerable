@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" action="/profile/{{ username }}/account/update/{{ r }}">
+    <div class="single-blog-wrapper">
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <div class="regular-page-content-wrapper section-padding-80">
+                            <h2>Account Update</h2>
+                            <p>We accept credit card only. Visa (16 digits), American Express, Master Card!</p>
+<br>
+
+
+                          {% if errors %}
+                            <p style = 'color:red'>{{ errors }} </p>
+                          {% endif %}
+<!--                          <div class="input-group flex-nowrap">-->
+<!--                              <div class="input-group-prepend">-->
+<!--                                <span class="input-group-text" id="addon-wrapping">Payment Method</span>-->
+<!--                              </div>-->
+
+<!--                                <input type ='hidden' value ={{username}}  name ='username' placeholder="Payment Method" class = 'form-control' name="paymentmethod">-->
+
+<!--                            </div>-->
+<!--                        -->
+                          <div class="input-group flex-nowrap">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Payment Method</span>
+                              </div>
+
+                                <input type ='text' placeholder="Payment Method" class = 'form-control' name="paymentmethod">
+
+                            </div>
+                        <br>
+                          <div class="input-group flex-nowrap">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Credit Card Number</span>
+                              </div>
+
+                                    <input type='text' placeholder="Credit Card" class="form-control" name ='creditcard'>
+                            </div>
+                        <br>
+                            <div class="input-group flex-nowrap">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="addon-wrapping">Address</span>
+                              </div>
+                                <textarea class="form-control" placeholder="Addres" name ='address'></textarea>
+                            </div>
+
+
+
+
+                            <br>
+                            <center><input type="submit"  value="Update" class="btn btn-outline-primary"></center>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

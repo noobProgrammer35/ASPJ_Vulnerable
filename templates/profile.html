@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class = 'container'>
+    <br>
+    <div class = 'row mt-0'>
+        <a href="#" style = 'color:blue' class ='col-md-2'>User Information</a>
+        <a href = '/profile/{{ session["username"] }}/account/{{ r }}'  style = 'color:blue' class = 'col-md-2'>Account Information</a>
+    </div>
+    <hr>
+    <p>User ID: {{ account[0] }}</p>
+    <p>Username: {{ account[1] }}</p>
+    <p>First Name: {{ account[2] }}</p>
+    <p>Last Name: {{ account[3] }}</p>
+    <p>Contact: {{ account[4] }}</p>
+    <p>Email: {{ account[5] }}</p>
+    <p>Password: {{ account[6] }}</p>
+    <p>Verified: {{ account[8] }}</p>
+    <button  class="btn btn-outline-primary">Change Password</button>
+
+</div>
+<br>
+{% endblock %}
