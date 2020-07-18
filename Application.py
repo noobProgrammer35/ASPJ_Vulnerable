@@ -333,7 +333,16 @@ def search_result():
     search = "%{}%".format(query)
     result = AdminModel.database.session.query(AdminModel.Product).filter(or_(AdminModel.Product.Name.ilike(search), AdminModel.Product.Description.ilike(search))).all()
     print(result)
-    return render_template('search.html',product=result,itemCount=len(result),query=query)
+
+    conn =  connector.MySQLConnection(**db)
+    cursor = conn.cursor(buffered=True)
+    sql = "SELECT*FROM products where Description LIKE'"+"%"+query+"%"+"'"
+    cursor.execute(sql)
+    r = cursor.fetchall()
+    conn.commit()
+
+    print(r)
+    return render_template('search.html',product=r,itemCount=len(result),query=query)
 
 @app.route('/cart',methods=['GET','POST'])
 def cart():
