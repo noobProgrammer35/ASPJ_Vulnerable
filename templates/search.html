@@ -173,7 +173,7 @@
                                 <div class="single-product-wrapper">
                                     <!-- Product Image -->
                                     <div class="product-img">
-                                        <img src="../static/upload/{{ product.Image }}" alt="">
+                                        <img src="../static/upload/{{ product[5] }}" alt="">
                                         <!-- Hover Thumb -->
                                         <img class="hover-img" src="../static/upload/{{ product.Image }}" alt="">
 
@@ -182,11 +182,11 @@
 
                                     <!-- Product Description -->
                                     <div class="product-description">
-                                        <span>{{ product.Name }}</span>
+                                        <span>{{ product[1] }}</span>
                                         <a href="/catalog/{{ product.productid }}">
-                                            <h6>{{ product.Description }}</h6>
+                                            <h6>{{ product[2] }}</h6>
                                         </a>
-                                        <p class="product-price">${{ product.price }}</p>
+                                        <p class="product-price">${{ product[4] }}</p>
 
                                         <!-- Hover Content -->
                                         <div class="hover-content">
