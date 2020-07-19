@@ -34,7 +34,6 @@ with app.app_context():
 
 @app.route('/')
 def home_page():
-    print('test')
     test = request.args.get('username')
     r = request.cookies.get('session')
     return render_template('index.html',test=test,r = r)
