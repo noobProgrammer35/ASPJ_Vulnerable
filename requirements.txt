@@ -1,7 +1,7 @@
 requests==2.22.0
 urllib3==1.25.8
 azure_storage==0.37.0
-Flask==0.12
+Flask==1.0
 flask_admin==1.5.6
 flask_cors==3.0.8
 flask_mail==0.9.1
