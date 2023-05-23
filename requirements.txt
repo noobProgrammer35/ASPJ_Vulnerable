@@ -1,4 +1,4 @@
-requests==2.22.0
+requests==2.31.0
 urllib3==1.25.8
 azure_storage==0.37.0
 Flask==0.12
